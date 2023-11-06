@@ -105,6 +105,35 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+
+
+   <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="CHILD-ELEMENT"/>
+        <xs:element ref="CHILD-SET"/>
+        <xs:element ref="ATTRIBUTE"/>
+      </xs:choice>
+      <xs:attribute name="name" type="xs:NCName" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Element name
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="text" default="prohibited">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies if the element can contain text or not
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="prohibited"/>
+            <xs:enumeration value="allowed"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
   
   <xs:element name="CHILD-ELEMENT">
     <xs:annotation>
